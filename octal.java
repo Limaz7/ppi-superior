@@ -8,7 +8,7 @@ public class octal {
 
         Scanner sc = new Scanner(System.in);
         int total = 0;
-        System.out.println("Selecione uma das opções: 1 = Octal para decimal, 2 = Decimal para octal, 3 = Octal para Hexadecimal");
+        System.out.println("Selecione uma das opções: 1 = Octal para decimal, 2 = Decimal para octal, 3 = Octal para binario");
         int alter = sc.nextInt();
 
         if (alter == 1) {
@@ -19,12 +19,12 @@ public class octal {
 
             for (int i = 0; i < qtdalgar; i++) {
                 char caractere = strvocta.charAt(i);
-                System.out.println(caractere);
+
                 double pot = Math.pow(8, qtdalgar - 1 - i);
-                System.out.println(pot);
+
                 int valor = Character.getNumericValue(caractere);
                 double result = valor * pot;
-                System.out.println(result);
+            
                 total += result;
                 
             }
@@ -47,8 +47,52 @@ public class octal {
             }
            
             System.out.println("Seu numero em octal é: "+octal);
-        }
+        } 
         
-        sc.close();
+        if (alter == 3) {
+        	String octal = "";
+        	  System.out.println("Escolha o valor em octal que será convertido:");
+              String strvocta = sc.next();
+
+              int qtdalgar = strvocta.length();
+
+              for (int i = 0; i < qtdalgar; i++) {
+                  char caractere = strvocta.charAt(i);
+        
+                  double pot = Math.pow(8, qtdalgar - 1 - i);
+              
+                  int valor = Character.getNumericValue(caractere);
+                  double result = valor * pot;
+     
+                  total += result;
+               
+
+
+      			
+
+              }
+              
+              while(total > 0) {
+
+    				int resto = total % 2;
+
+    				 octal = resto + octal;
+
+    				total /= 2;
+
+    			}
+
+    			
+
+    			System.out.println("Binario: " + octal);
+                
+                
+                
+      	
+      }
+              
+             
+              }
+    
     }
-}
+
